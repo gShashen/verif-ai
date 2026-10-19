@@ -23,3 +23,20 @@ class Claim(BaseModel):
     confidence: Literal["high", "medium", "low"]
     explanation: str
     sources: list[Source]
+
+
+class PipelineError(BaseModel):
+    """A failure in one pipeline stage, optionally tied to a specific claim."""
+
+    stage: Literal["extract", "claims", "search", "evaluate"]
+    message: str
+    claim_id: int | None = None
+
+
+class VerifyResponse(BaseModel):
+    """Full /verify result: the input, its checked claims and any errors."""
+
+    url: str | None
+    source_type: Literal["youtube", "article", "text"]
+    claims: list[Claim]
+    errors: list[PipelineError]
