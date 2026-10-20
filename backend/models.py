@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 
 
 class Source(BaseModel):
@@ -40,3 +40,26 @@ class VerifyResponse(BaseModel):
     source_type: Literal["youtube", "article", "text"]
     claims: list[Claim]
     errors: list[PipelineError]
+
+
+class VerifyRequest(BaseModel):
+    """Input to /verify: exactly one of a URL or pasted text."""
+
+    url: str | None = None
+    text: str | None = None
+
+    @model_validator(mode="after")
+    def check_exactly_one_input(self):
+        """Treat blank strings as missing, then require exactly one input."""
+        if self.text is not None:
+            self.text = self.text.strip() or None
+
+        if self.url is not None:
+            self.url = self.url.strip() or None
+
+        if self.url is None and self.text is None:
+            raise ValueError("Provide a URL or some text to check.")
+        elif self.url and self.text:
+            raise ValueError("Provide either a URL or text, not both.")
+
+        return self
