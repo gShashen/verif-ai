@@ -21,6 +21,8 @@ VIDEO_ID = "dQw4w9WgXcQ"
         f"https://youtube.com/shorts/{VIDEO_ID}?feature=share",
         f"https://www.youtube.com/embed/{VIDEO_ID}",
         f"https://www.youtube.com/live/{VIDEO_ID}?si=AbC123xyz",
+        f"https://www.youtube.com/shorts/{VIDEO_ID}/",
+        f"https://www.youtube.com/embed/{VIDEO_ID}/extra",
         f"http://youtu.be/{VIDEO_ID}",
         f"https://YouTu.be/{VIDEO_ID}",
         f"youtu.be/{VIDEO_ID}",

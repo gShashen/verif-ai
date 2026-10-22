@@ -40,8 +40,8 @@ def get_youtube_id(url: str) -> str | None:
     if parsed.path == '/watch':
         video_id = parse_qs(parsed.query).get('v', [None])[0]
 
-    if any(x in parsed.path for x in ['/shorts/', '/embed/', '/live/']):
-        video_id = parsed.path.split('/')[-1]
+    if parsed.path.startswith(('/shorts/', '/embed/', '/live/')):
+        video_id = parsed.path.strip('/').split('/')[1]
 
     if video_id is not None and re.fullmatch(r"[A-Za-z0-9_-]{11}",video_id):
         return video_id
