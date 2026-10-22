@@ -2,6 +2,7 @@
 .env
 
 # Python
+scratch/
 venv/
 .venv/
 __pycache__/
