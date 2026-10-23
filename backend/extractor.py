@@ -2,9 +2,12 @@ import re
 from typing import Literal
 from urllib.parse import parse_qs, urlparse
 
+import trafilatura
+from newspaper import Article, ArticleException
 from youtube_transcript_api import CouldNotRetrieveTranscript, NoTranscriptFound, YouTubeTranscriptApi
 
 YOUTUBE_HOSTS = {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be"}
+MIN_ARTICLE_CHARS = 500
 
 
 class ExtractionError(Exception):
@@ -22,6 +25,28 @@ def _clean_text(text: str) -> str:
     """Collapse all whitespace (including non-breaking spaces and newlines) into single spaces."""
 
     return " ".join(text.split())
+
+
+def _extract_with_trafilatura(url: str) -> str | None:
+    """Download and extract article text with trafilatura, or return None if either step fails."""
+    downloaded = trafilatura.fetch_url(url)
+
+    if downloaded:
+        extracted = trafilatura.extract(downloaded)
+        return extracted
+    else:
+        return None
+
+
+def _extract_with_newspaper(url: str) -> str | None:
+    """Download and extract article text with newspaper4k, or return None if it fails."""
+    article = Article(url)
+    try:
+        article.download()
+        article.parse()
+        return article.text
+    except ArticleException:
+        return None
 
 
 def detect_source_type(url: str) -> Literal["youtube", "article"]:
@@ -85,4 +110,22 @@ def get_transcript_youtube(video_id: str) -> str:
     if result == "":
         raise ExtractionError("The transcript is empty.")
     else:
+        return result
+
+
+def get_article_text(url: str) -> str:
+    """Return cleaned article text, trying trafilatura then newspaper4k; raise ExtractionError if both fail."""
+    url = _normalize_url(url)
+
+    trafilatura_extraction = _extract_with_trafilatura(url)
+
+    if trafilatura_extraction is None or len(_clean_text(trafilatura_extraction)) <= MIN_ARTICLE_CHARS:
+        newspaper_extraction = _extract_with_newspaper(url)
+        if newspaper_extraction is None or len(_clean_text(newspaper_extraction)) <= MIN_ARTICLE_CHARS:
+            raise ExtractionError("Couldn't read the article at this link. Try pasting the text instead.")
+        else:
+            result = _clean_text(newspaper_extraction)
+            return result
+    else:
+        result = _clean_text(trafilatura_extraction)
         return result
