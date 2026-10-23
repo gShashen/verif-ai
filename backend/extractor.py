@@ -4,7 +4,7 @@ from urllib.parse import parse_qs, urlparse
 
 import trafilatura
 from newspaper import Article, ArticleException
-from youtube_transcript_api import CouldNotRetrieveTranscript, NoTranscriptFound, YouTubeTranscriptApi
+from youtube_transcript_api import CouldNotRetrieveTranscript, NoTranscriptFound, YouTubeTranscriptApi, TranscriptsDisabled
 
 YOUTUBE_HOSTS = {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be"}
 MIN_ARTICLE_CHARS = 500
@@ -33,7 +33,7 @@ def _extract_with_trafilatura(url: str) -> str | None:
     downloaded = trafilatura.fetch_url(url)
 
     if downloaded:
-        extracted = trafilatura.extract(downloaded)
+        extracted = trafilatura.extract(downloaded,include_comments=False)
         return extracted
     else:
         return None
@@ -97,6 +97,8 @@ def get_transcript_youtube(video_id: str) -> str:
         transcript = ytt_api.fetch(video_id, languages=["en"])
     except NoTranscriptFound as err:
         raise ExtractionError("This video has no English transcript.") from err
+    except TranscriptsDisabled as err:
+        raise ExtractionError("This video has no captions.") from err
     except CouldNotRetrieveTranscript as err:
         raise ExtractionError("Couldn't get a transcript for this video.") from err
 
