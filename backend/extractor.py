@@ -8,6 +8,7 @@ from youtube_transcript_api import CouldNotRetrieveTranscript, NoTranscriptFound
 
 YOUTUBE_HOSTS = {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be"}
 MIN_ARTICLE_CHARS = 500
+MIN_TEXT_CHARS = 100
 
 
 class ExtractionError(Exception):
@@ -51,7 +52,7 @@ def _extract_with_newspaper(url: str) -> str | None:
 
 def detect_source_type(url: str) -> Literal["youtube", "article"]:
     """Return "youtube" if the URL is on a YouTube domain, otherwise "article"."""
-    
+
     url = _normalize_url(url)
     parsed_url = urlparse(url)
 
@@ -119,9 +120,9 @@ def get_article_text(url: str) -> str:
 
     trafilatura_extraction = _extract_with_trafilatura(url)
 
-    if trafilatura_extraction is None or len(_clean_text(trafilatura_extraction)) <= MIN_ARTICLE_CHARS:
+    if trafilatura_extraction is None or len(_clean_text(trafilatura_extraction)) < MIN_ARTICLE_CHARS:
         newspaper_extraction = _extract_with_newspaper(url)
-        if newspaper_extraction is None or len(_clean_text(newspaper_extraction)) <= MIN_ARTICLE_CHARS:
+        if newspaper_extraction is None or len(_clean_text(newspaper_extraction)) < MIN_ARTICLE_CHARS:
             raise ExtractionError("Couldn't read the article at this link. Try pasting the text instead.")
         else:
             result = _clean_text(newspaper_extraction)
@@ -129,3 +130,27 @@ def get_article_text(url: str) -> str:
     else:
         result = _clean_text(trafilatura_extraction)
         return result
+
+def extract_text(url: str | None, text: str | None) -> tuple[Literal["youtube", "article", "text"], str]:
+    """Return (source_type, cleaned_text) for either a URL or pasted text."""
+
+    if text is not None:
+        text = _clean_text(text)
+        if len(text) < MIN_TEXT_CHARS:
+            raise ExtractionError("Paste at least a couple of sentences to check.")
+        else:
+            return "text", text
+
+    source_type = detect_source_type(url)
+
+    if source_type == "youtube":
+        yt_id = get_youtube_id(url)
+
+        if yt_id is None:
+            raise ExtractionError("That YouTube link isn't a video.")
+        else:
+            yt_transcript = get_transcript_youtube(yt_id)
+            return "youtube", yt_transcript
+    else:
+        article_text = get_article_text(url)
+        return "article", article_text

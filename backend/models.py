@@ -63,3 +63,12 @@ class VerifyRequest(BaseModel):
             raise ValueError("Provide either a URL or text, not both.")
 
         return self
+
+
+class ExtractResponse(BaseModel):
+    """Result of /extract: the cleaned input text before claim extraction."""
+
+    url: str | None
+    source_type: Literal["youtube", "article", "text"]
+    text: str
+    word_count: int
