@@ -1,5 +1,7 @@
-# Secrets
+# Secrets (never commit; .env.example is allowed)
 .env
+.env.*
+!.env.example
 
 # Python
 scratch/
@@ -7,13 +9,45 @@ venv/
 .venv/
 __pycache__/
 *.pyc
+*.pyo
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Model weights, caches, large data (not used in v1, guard anyway)
+.cache/
+*.pt
+*.bin
+*.safetensors
+*.onnx
+data/raw/
+*.csv.gz
 
 # Node (frontend, Day 6)
 node_modules/
 dist/
+.vite/
+npm-debug.log*
+
+# Deploy platforms
+.vercel/
+
+NOTES.md
 
 # Editor / OS
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Extra ML guards (not used in v1)
+*.ckpt
+*.h5
+data/
+models_cache/
