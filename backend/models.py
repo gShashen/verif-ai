@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import BaseModel, model_validator
+from pydantic import BaseModel, Field, model_validator
 
 
 class Source(BaseModel):
@@ -72,3 +72,20 @@ class ExtractResponse(BaseModel):
     source_type: Literal["youtube", "article", "text"]
     text: str
     word_count: int
+
+
+# Internal: LLM output for claims.py (not part of the API response)
+
+
+class ExtractedClaim(BaseModel):
+    """One claim as returned by the claim extraction tool call."""
+
+    text: str = Field(min_length=1)
+    search_query: str = Field(min_length=1)
+    checkworthiness: int = Field(ge=1, le=5)
+
+
+class ClaimsOutput(BaseModel):
+    """The full tool input from one claim extraction call: 3 to 6 claims."""
+
+    claims: list[ExtractedClaim] = Field(min_length=1, max_length=6)
