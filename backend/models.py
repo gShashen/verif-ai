@@ -89,3 +89,17 @@ class ClaimsOutput(BaseModel):
     """The full tool input from one claim extraction call: 3 to 6 claims."""
 
     claims: list[ExtractedClaim] = Field(min_length=1, max_length=6)
+
+
+# Internal: search results for search.py (not part of the API response)
+
+
+class SearchSource(BaseModel):
+    """One web source for a claim, before the evaluator has labelled its stance."""
+
+    url: str
+    title: str
+    domain: str
+    tier: Literal[1, 2, 3]
+    snippet: str
+    text: str

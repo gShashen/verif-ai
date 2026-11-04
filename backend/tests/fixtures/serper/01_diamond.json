@@ -1,0 +1,118 @@
+{
+  "searchParameters": {
+    "q": "diamond thermal conductivity compared to other materials",
+    "gl": "us",
+    "hl": "en",
+    "type": "search",
+    "num": 10,
+    "engine": "google"
+  },
+  "organic": [
+    {
+      "title": "TIL diamond has exceptional heat conductivity (better than ...",
+      "link": "https://www.reddit.com/r/todayilearned/comments/1lz8uj7/til_diamond_has_exceptional_heat_conductivity/",
+      "snippet": "A heatsink made of diamond would be five times more effective than copper, as diamond is an incredibly effective heat conductor.",
+      "date": "1 year ago",
+      "position": 1
+    },
+    {
+      "title": "Top 10 Thermally Conductive Materials",
+      "link": "https://thermtest.com/thermal-resources/top-10-resources/top-10-thermally-conductive-materials",
+      "snippet": "Diamond \u2013 2000 \u2013 2200 W/m\u2022K. Diamond is the leading thermally conductive material and has conductivity values measured 5x's higher than copper, the most ...",
+      "position": 2
+    },
+    {
+      "title": "Material properties of diamond",
+      "link": "https://en.wikipedia.org/wiki/Material_properties_of_diamond",
+      "snippet": "Thermal conductivity of natural diamond was measured to be about 2,200 W/(m\u00b7K), which is five times more than silver, the most thermally conductive metal.",
+      "position": 3
+    },
+    {
+      "title": "Thermal Conductivity of Diamond | Springer Nature Link",
+      "link": "https://link.springer.com/chapter/10.1007/978-1-4615-2257-7_7",
+      "snippet": "by JE Graebner \u00b7 Cited by 75 \u2014 Diamond has the highest thermal conductivity of any known material at temperatures above ~ 100K. of 24\u201325 Wcm-1K-1 at 300K, compared to 4 for Cu and 1.5 for Si.",
+      "position": 4
+    },
+    {
+      "title": "Why does diamond conduct heat better than graphite?",
+      "link": "https://chemistry.stackexchange.com/questions/12404/why-does-diamond-conduct-heat-better-than-graphite",
+      "snippet": "Our teachers made us accept (without any explanation) that diamond conducts heat better than graphite. What is the reason behind this (alleged) fact?",
+      "date": "Jun 6, 2014",
+      "position": 5
+    },
+    {
+      "title": "Thermal Conductivity of Diamond Composites - PMC - NIH",
+      "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5513588/",
+      "snippet": "by SV Kidalov \u00b7 2009 \u00b7 Cited by 388 \u2014 natural single-crystal diamond is known to feature the highest thermal conductivity of all the bulk materials studied thus far, as high as 2,200 W/(m\u00b7K).",
+      "position": 6
+    },
+    {
+      "title": "Diamond Thermal Conductivity: A New Era in Chip Cooling",
+      "link": "https://spectrum.ieee.org/diamond-thermal-conductivity",
+      "snippet": "It's one of the most thermally conductive materials on the planet\u2014many times more efficient than copper\u2014yet it's also electrically insulating.",
+      "date": "Oct 21, 2025",
+      "position": 7
+    },
+    {
+      "title": "Thermal Properties of CVD Diamond",
+      "link": "https://www.diamond-materials.com/en/cvd-diamond/thermal/",
+      "snippet": "One of many remarkable properties of diamond is its unsurpassed thermal conductivity. With a value of 2000 W/mK it exceeds that of copper by a factor of five. ...",
+      "position": 8
+    },
+    {
+      "title": "HOW does diamond conduct thermal energy? Explore the ...",
+      "link": "https://en.csmh-semi.com/a/9-381.html",
+      "snippet": "Diamond's thermal conductivity far exceeds that of traditional silicon-based materials, providing a revolutionary solution for heat dissipation ...",
+      "date": "Sep 11, 2024",
+      "position": 9
+    },
+    {
+      "title": "High Thermal Conductivity Materials: Diamond, TaN, SiC, ...",
+      "link": "https://www.acsmaterial.com/blog-detail/high-thermal-conductivity-materials-race.html?srsltid=AYCX9vJdol5wm6_w7QaQKJiKFNr32jQtBzykbokBzlPVrrIYhp2oxf1B",
+      "snippet": "High-purity synthetic single-crystal diamond measures around 2,000 W\u00b7m\u22121\u00b7K\u22121 at room temperature \u2014 phonon transport in one of the stiffest, ...",
+      "date": "Jul 27, 2026",
+      "position": 10
+    }
+  ],
+  "peopleAlsoAsk": [
+    {
+      "question": "Is diamond the most thermally conductive material?"
+    },
+    {
+      "question": "What is the thermal conductivity of diamond?"
+    },
+    {
+      "question": "Why is a diamond a poor conductor?"
+    },
+    {
+      "question": "Will a diamond crack if heated?"
+    }
+  ],
+  "relatedSearches": [
+    {
+      "query": "Diamond thermal conductivity compared to other materials reddit"
+    },
+    {
+      "query": "Diamond thermal conductivity compared to other materials graph"
+    },
+    {
+      "query": "Diamond thermal conductivity vs copper"
+    },
+    {
+      "query": "Diamond thermal conductivity vs silver"
+    },
+    {
+      "query": "Best conductor of heat list"
+    },
+    {
+      "query": "Which metal has highest thermal conductivity"
+    },
+    {
+      "query": "Diamond electrical conductivity when molten"
+    },
+    {
+      "query": "Highest thermal conductivity materials"
+    }
+  ],
+  "credits": 1
+}
