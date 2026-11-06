@@ -103,3 +103,21 @@ class SearchSource(BaseModel):
     tier: Literal[1, 2, 3]
     snippet: str
     text: str
+
+
+# Internal: LLM output for evaluator.py (not part of the API response)
+
+
+class SourceStance(BaseModel):
+    """The stance Sonnet gave to one numbered source (numbers start at 1)."""
+
+    source_number: int = Field(ge=1)
+    stance: Literal["support", "contradict", "not_addressed"]
+    evidence: str
+
+
+class EvaluationOutput(BaseModel):
+    """The full tool input from one evaluator call: a stance per source plus a short explanation."""
+
+    sources: list[SourceStance] = Field(min_length=1)
+    explanation: str = Field(min_length=1)
