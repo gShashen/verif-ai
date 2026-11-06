@@ -39,6 +39,9 @@ BLOCKED_DOMAINS = {
     "instagram.com",
     "pinterest.com",
 }
+# Google sometimes returns redirect links (google.com/goto?url=opaque-token) instead of the real
+# page. The real site is unrecoverable, so its domain and tier would be wrong; drop them.
+REDIRECT_PATHS = {"/goto", "/url"}
 
 def clean_url(url):
     """Return (domain, path) for a URL: lowercase host without port or leading www./m., path with its case.
@@ -160,6 +163,8 @@ def filter_results(results, input_url=None, limit=5):
         elif input_domain != "" and _matches_list(domain, {input_domain}):
             continue
         elif _matches_list(domain, BLOCKED_DOMAINS):
+            continue
+        elif domain == "google.com" and path in REDIRECT_PATHS:
             continue
         elif domain in seen_domains:
             continue

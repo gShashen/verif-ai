@@ -259,6 +259,40 @@ def test_link_without_hostname_is_dropped():
 # ---------- the output objects ----------
 
 
+def test_google_redirect_links_are_dropped():
+    """Google /goto and /url redirect links hide the real site, so they are dropped."""
+    results = [
+        result("https://www.google.com/goto?url=CAESaAHEIkXX", title="Redirect one"),
+        result("https://www.google.com/url?q=https://example.org/page", title="Redirect two"),
+        result("https://example.org/real", title="A real page"),
+    ]
+
+    kept = filter_results(results)
+
+    assert [s.url for s in kept] == ["https://example.org/real"]
+
+
+def test_google_redirect_does_not_use_up_a_slot():
+    """A dropped redirect never blocks later results, so the limit is still filled."""
+    results = [result("https://www.google.com/goto?url=AAA", title="Redirect")]
+    for number in range(5):
+        results.append(result(f"https://site{number}.example/page", title=f"Unique title {number} alpha"))
+
+    kept = filter_results(results, limit=5)
+
+    assert len(kept) == 5
+    assert all(s.domain != "google.com" for s in kept)
+
+
+def test_other_google_pages_are_not_dropped():
+    """Only the redirect paths are dropped, not every google.com page."""
+    results = [result("https://support.google.com/accounts/answer/1", title="Google help")]
+
+    kept = filter_results(results)
+
+    assert len(kept) == 1
+
+
 def test_output_is_search_source_with_tier_and_empty_text():
     kept = filter_results([result("https://www.who.int/news/x", "WHO says", "WHO snippet")])
     source = kept[0]
