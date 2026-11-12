@@ -1,0 +1,137 @@
+{
+  "input_url": "https://www.bbc.com/news/articles/cq74pjpmx0e8o",
+  "status": 200,
+  "seconds": 26.0,
+  "response": {
+    "url": "https://www.bbc.com/news/articles/cq74pjpmx0e8o",
+    "source_type": "article",
+    "claims": [
+      {
+        "id": 1,
+        "text": "Drones travelling faster than 100mph (161km/h) lost their Starlink connection in Ukraine.",
+        "verdict": "supported",
+        "confidence": "low",
+        "explanation": "Both sources report that Ukrainian drones lost their Starlink/Starshield connection at high speeds. Source 1 gives the 100 mph (160 km/h) threshold directly. Source 2 reports drops at speeds as low as 40 mph, which is consistent with drones above 100 mph also losing connection.",
+        "sources": [
+          {
+            "url": "https://fortune.com/2026/10/19/ukraine-starlink-starshield-drone-speed-limit-musk-trump/",
+            "title": "Ukraine's drones lose their Starlink link above 100 mph. ...",
+            "domain": "fortune.com",
+            "tier": 3,
+            "stance": "support",
+            "evidence": "Ukrainian military users found that satellite-connected hardware traveling faster than 100 mph (160 km/h) lost its connection."
+          },
+          {
+            "url": "https://www.nytimes.com/2026/10/21/world/europe/starshield-starlink-ukraine.html",
+            "title": "When Starshield Cut Out, Ukrainian Drones Fell From the ...",
+            "domain": "nytimes.com",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "The initial Starshield throttling caused Ukrainian drones to lose their connection to the system when flying at speeds as low as 40 miles an hour."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "Trump agreed a deal to import Russian diesel for the US market.",
+        "verdict": "supported",
+        "confidence": "medium",
+        "explanation": "Both sources describe a Trump–Putin agreement and a US sanctions exemption allowing Russian diesel imports. Both treat the deal as real, though Source 1 says it is contested and Source 2 says it is faltering.",
+        "sources": [
+          {
+            "url": "https://www.pbs.org/newshour/world/tankers-carrying-russian-diesel-change-course-raising-doubts-about-shipments-to-u-s",
+            "title": "Tankers carrying Russian diesel change course, raising ...",
+            "domain": "pbs.org",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "The official said increasing shipments was in keeping with Putin and Trump's agreement, and OFAC issued an exemption for the sale, delivery, unloading and importing of Russian diesel until April 7."
+          },
+          {
+            "url": "https://www.ft.com/content/f66ebf48-6d09-4a91-9af5-8bf7adca65ba?syn-25a6b1a6=1",
+            "title": "Trump diesel deal with Russia falters as US fuel supplies ...",
+            "domain": "ft.com",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Trump struck an agreement with Russian President Vladimir Putin ... to purchase cargoes of diesel and import ..."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "Starshield is controlled by the US military.",
+        "verdict": "supported",
+        "confidence": "medium",
+        "explanation": "Both sources report the statement that Starshield is controlled by the US government. Source 2 also says the US military decides limits on its use. Source 1 says only \"US government\", which is close enough to support the claim.",
+        "sources": [
+          {
+            "url": "https://www.reuters.com/business/media-telecom/ukraines-starshield-contract-with-us-expires-next-year-diplomat-says-2026-11-05/",
+            "title": "Ukraine's Starshield contract with US expires next year ...",
+            "domain": "reuters.com",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Musk, in an October 24 post on X, said Starshield was controlled by the US government."
+          },
+          {
+            "url": "https://www.nytimes.com/2026/10/22/us/politics/starshield-outage-ukraine-musk-trump.html",
+            "title": "Trump Asked Musk to Reverse Limits on Ukraine's Military ...",
+            "domain": "nytimes.com",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Starshield systems are owned and controlled by the US government. Any limits on speed or usage are decided by the US military."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "text": "Andy Burnham is the British prime minister.",
+        "verdict": "supported",
+        "confidence": "low",
+        "explanation": "Both sources point to Andy Burnham as Prime Minister. The Wikipedia text says so directly. The gov.uk page lists the Prime Minister role on his official profile and says he became Labour leader in July 2026.",
+        "sources": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Andy_Burnham",
+            "title": "Andy Burnham",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "British politician who has served as Prime Minister of the United Kingdom and Leader of the Labour Party since July 2026."
+          },
+          {
+            "url": "https://www.gov.uk/government/people/andy-burnham",
+            "title": "The Rt Hon Andy Burnham MP",
+            "domain": "gov.uk",
+            "tier": 3,
+            "stance": "support",
+            "evidence": "The gov.uk page for The Rt Hon Andy Burnham MP lists the Prime Minister role and says he was elected Leader of the Labour Party on 16 July 2026."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "text": "Russia is not authorised to use the Starlink network.",
+        "verdict": "insufficient_evidence",
+        "confidence": "low",
+        "explanation": "Neither source says whether Russia is officially authorised to use Starlink. Source 1 says Russia is building its own alternative. Source 2 says Russian forces were using Starlink terminals, which is about actual use and not about authorisation.",
+        "sources": [
+          {
+            "url": "https://www.atlanticcouncil.org/blogs/ukrainealert/russias-starlink-substitute-poses-a-security-threat-far-beyond-ukraine/",
+            "title": "Russia's Starlink substitute poses a security threat far ...",
+            "domain": "atlanticcouncil.org",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "Russia is currently developing a satellite network project meant to serve as a domestic alternative to SpaceX's Starlink."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Starlink_in_the_Russo-Ukrainian_war",
+            "title": "Starlink in the Russo-Ukrainian war",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "not_addressed",
+            "evidence": "Russian forces were reported by the Wall Street Journal to still be using Starlink terminals both in Ukraine and abroad in April 2024."
+          }
+        ]
+      }
+    ],
+    "errors": []
+  }
+}

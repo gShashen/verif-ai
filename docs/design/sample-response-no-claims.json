@@ -1,0 +1,12 @@
+{
+  "url": "https://example.com/opinion-piece",
+  "source_type": "article",
+  "claims": [],
+  "errors": [
+    {
+      "stage": "claims",
+      "message": "No checkable claims were found in this text.",
+      "claim_id": null
+    }
+  ]
+}

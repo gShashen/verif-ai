@@ -1,0 +1,153 @@
+{
+  "input_url": "https://www.youtube.com/watch?v=HKJC84RLhyU",
+  "status": 200,
+  "seconds": 27.6,
+  "response": {
+    "url": "https://www.youtube.com/watch?v=HKJC84RLhyU",
+    "source_type": "youtube",
+    "claims": [
+      {
+        "id": 1,
+        "text": "General Electric's research lab grew the first diamonds in a secret project after World War II called Project Super Pressure.",
+        "verdict": "insufficient_evidence",
+        "confidence": "low",
+        "explanation": "Sources 1 and 2 say GE's lab ran a secret effort called Project Superpressure that produced the first lab-grown diamonds. Source 3 credits GE with the first synthesis but says nothing about the project name or secrecy, so it doesn't address the claim. Its 1953 date is also earlier than Source 2's 1954 account, though the claim doesn't depend on the date.",
+        "sources": [
+          {
+            "url": "https://www.sciencefriday.com/articles/diamond-fake-excerpt/",
+            "title": "How The First Non-Natural Diamond Was Grown In A GE Lab",
+            "domain": "sciencefriday.com",
+            "tier": 3,
+            "stance": "support",
+            "evidence": "The project was code-named “Project Superpressure” and everyone was sworn to secrecy... GE Research Laboratory had become the centre of synthetic diamond research."
+          },
+          {
+            "url": "https://www.kingsjewelry.net/blog/2020/Mar/17/heres-how-ges-project-superpressure-produced-first/",
+            "title": "Here's How GE's 'Project Superpressure' Produced the First ...",
+            "domain": "kingsjewelry.net",
+            "tier": 3,
+            "stance": "support",
+            "evidence": "At General Electric, the super secret effort to create diamonds in a lab was code-named “Project Superpressure.”"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Synthetic_diamond",
+            "title": "Synthetic diamond",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "not_addressed",
+            "evidence": "The first known (but initially not reported) diamond synthesis was achieved on February 16, 1953, General Electric (GE)."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "Diamond conducts heat better than almost any other material on Earth.",
+        "verdict": "supported",
+        "confidence": "low",
+        "explanation": "Both sources say diamond has extremely high thermal conductivity, well above the best metals (copper and silver). Source 1 ranks it first among thermal conductors. This supports the claim.",
+        "sources": [
+          {
+            "url": "https://thermtest.com/thermal-resources/top-10-resources/top-10-thermally-conductive-materials",
+            "title": "Top 10 Thermally Conductive Materials",
+            "domain": "thermtest.com",
+            "tier": 3,
+            "stance": "support",
+            "evidence": "Diamond is the leading thermally conductive material and has conductivity values measured 5x’s higher than copper."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Material_properties_of_diamond",
+            "title": "Material properties of diamond",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Thermal conductivity of natural diamond was measured to be about 2,200 W/(m·K), which is five times more than silver, the most thermally conductive metal."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "The number of transistors engineers can fit onto a computer chip has roughly doubled every two years, a trend known as Moore's Law.",
+        "verdict": "supported",
+        "confidence": "medium",
+        "explanation": "Source 1 defines Moore's law as transistor counts doubling about every two years. Source 2 is a page about Moore's law and transistor counts that says the law has accurately predicted progress, which supports the claim, though its text is mostly navigation links.\"",
+        "sources": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Moore%27s_law",
+            "title": "Moore's law",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Moore's law is the observation that the number of transistors in an integrated circuit (IC) doubles about every two years, with minimal increase in cost."
+          },
+          {
+            "url": "https://ourworldindata.org/grapher/transistors-per-microprocessor",
+            "title": "Moore's law: The number of transistors per microprocessor",
+            "domain": "ourworldindata.org",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Moore's law has accurately predicted the progress in transistor counts over the last 50 years"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "text": "The world's first diamond-cooled server was built using an Nvidia H200.",
+        "verdict": "insufficient_evidence",
+        "confidence": "low",
+        "explanation": "Source 1 says the first diamond-cooled GPU servers were built and delivered with NVIDIA H200 GPUs. Source 2 is only an H200 spec page and doesn't mention diamond cooling.",
+        "sources": [
+          {
+            "url": "https://akashsystems.com/post/akash-systems-delivers-worlds-first-diamond-cooled-nvidia-gpu-servers-to-nxtgen-ai-pvt-ltd",
+            "title": "Akash Systems Delivers World's First Diamond Cooled ...",
+            "domain": "akashsystems.com",
+            "tier": 3,
+            "stance": "support",
+            "evidence": "the delivery of the world’s first Diamond Cooled GPU servers to NxtGen AI PVT Ltd... features the world’s most energy- and capital-efficient NVIDIA H200 GPU servers, integrated with Akash’s proprietary Diamond Cooling® technology."
+          },
+          {
+            "url": "https://www.nvidia.com/en-us/data-center/h200/",
+            "title": "nvidia h200 gpu",
+            "domain": "nvidia.com",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "NVIDIA H200 GPU specifications table; no mention of diamond cooling."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "text": "A recent test in a San Francisco data center using diamond cooling doubled the amount of compute coming off a GPU.",
+        "verdict": "insufficient_evidence",
+        "confidence": "low",
+        "explanation": "The sources describe diamond cooling gains of up to 22% FLOPs/Watt and up to 15% token throughput. None reports a doubling of GPU compute, and Source 1's figures conflict with that claim.",
+        "sources": [
+          {
+            "url": "https://www.prnewswire.com/il/news-releases/akash-systems-announces-worlds-first-diamond-cooled-ai-servers-with-amd-instinct-mi350x-gpus-and-mitac-computing-302702426.html",
+            "title": "Akash Systems Announces World's First Diamond Cooled ...",
+            "domain": "prnewswire.com",
+            "tier": 3,
+            "stance": "contradict",
+            "evidence": "Reports up to 22% additional FLOPs/Watt and up to 15% token throughput improvement, not a doubling of compute."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/felixejeckam_akash-systems-at-nvidia-gtc-2026-felix-ejeckam-activity-7457422830742310912-uqrN",
+            "title": "Stop Server Heat Loss with Diamond Cooling",
+            "domain": "linkedin.com",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "Says diamond cooling maintains 100% clock speeds with no thermal throttling, but gives no test showing doubled compute."
+          },
+          {
+            "url": "https://www.mitaccomputing.com/solutions/9",
+            "title": "Diamond Cooling",
+            "domain": "mitaccomputing.com",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "Says diamond enables cooler operation and greater performance headroom, with no figure on doubling."
+          }
+        ]
+      }
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* Graphite design tokens (from docs/design/tokens.css) */
+@theme {
+  /* colour */
+  --color-page: #070708;
+  --color-bg: #0C0C0D;
+  --color-surface: #141416;
+  --color-surface-2: #1B1B1E;
+  --color-line: #2A2A2E;
+  --color-line-strong: #44444A;
+  --color-fg: #EDEDED;
+  --color-fg-2: #BDBDC2;
+  --color-mu: #8D8D93;
+
+  /* verdict and stance (an icon and a word always accompany colour) */
+  --color-supported: #5AB0F0;
+  --color-contradicted: #F0794A;
+  --color-disputed: #EBC24D;
+  --color-insufficient: #8D8D93;
+  --color-on-verdict: #0C0C0D;
+  --color-error-text: #F7A98A;
+
+  /* type */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* radius (Solid chip style: 6px controls) */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* shadow */
+  --shadow-focus: 0 0 0 4px rgb(255 255 255 / 0.08);
+  --shadow-toast: 0 12px 32px -12px rgb(0 0 0 / 0.6);
+
+  /* motion */
+  --ease-ui: ease;
+  --default-transition-duration: 200ms;
+}
+
+/* Base styles */
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font: 15px/1.5 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Inputs get the white border and soft ring from their own utilities instead. */
+
+input::placeholder,
+textarea::placeholder {
+  color: #6d6d73;
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] > summary .chev {
+  transform: rotate(180deg);
+}
+
+@keyframes pulse-dot {
+  50% {
+    transform: scale(0.55);
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

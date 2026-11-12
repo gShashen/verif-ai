@@ -1,0 +1,116 @@
+{
+  "url": "https://www.youtube.com/watch?v=aB3xK9sleep",
+  "source_type": "youtube",
+  "claims": [
+    {
+      "id": 1,
+      "text": "Adults need seven or more hours of sleep per night.",
+      "verdict": "supported",
+      "confidence": "high",
+      "explanation": "Source 1, Source 2 and Source 3 give the same range of seven or more hours for adults. Source 4 agrees. Source 5 does not address the number.",
+      "sources": [
+        {
+          "url": "https://cdc.gov/example-1",
+          "title": "How much sleep do I need?",
+          "domain": "cdc.gov",
+          "tier": 1,
+          "stance": "support",
+          "evidence": "Adults aged 18 to 60 should sleep at least 7 hours per night."
+        },
+        {
+          "url": "https://nhlbi.nih.gov/example-1",
+          "title": "Sleep deprivation and deficiency",
+          "domain": "nhlbi.nih.gov",
+          "tier": 1,
+          "stance": "support",
+          "evidence": "Most adults need 7 to 9 hours of sleep a day."
+        },
+        {
+          "url": "https://health.harvard.edu/example-1",
+          "title": "Healthy sleep",
+          "domain": "health.harvard.edu",
+          "tier": 2,
+          "stance": "support",
+          "evidence": "Experts recommend seven to nine hours for most adults."
+        },
+        {
+          "url": "https://en.wikipedia.org/example-1",
+          "title": "Sleep",
+          "domain": "en.wikipedia.org",
+          "tier": 2,
+          "stance": "support",
+          "evidence": "Recommended sleep for adults is seven to nine hours."
+        },
+        {
+          "url": "https://sleepblogdaily.com/example-1",
+          "title": "Best mattress firmness for side sleepers",
+          "domain": "sleepblogdaily.com",
+          "tier": 3,
+          "stance": "not_addressed",
+          "evidence": "The article covers mattress firmness and does not mention nightly hours."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Eight glasses of water a day is a medical requirement.",
+      "verdict": "contradicted",
+      "confidence": "high",
+      "explanation": "Source 1 finds no evidence for a fixed eight-glass rule. Source 2 and Source 3 say needs vary with body size, diet and climate. Source 4 agrees. Source 5 is about water filters and does not address the claim.",
+      "sources": [
+        {
+          "url": "https://nih.gov/example-3",
+          "title": "Water and healthier drinks",
+          "domain": "nih.gov",
+          "tier": 1,
+          "stance": "contradict",
+          "evidence": "No study supports a single fixed number of glasses for everyone."
+        },
+        {
+          "url": "https://med.umich.edu/example-3",
+          "title": "Is eight glasses a day a myth?",
+          "domain": "med.umich.edu",
+          "tier": 2,
+          "stance": "contradict",
+          "evidence": "Fluid needs vary with body size, diet and climate."
+        },
+        {
+          "url": "https://en.wikipedia.org/example-3",
+          "title": "Drinking water",
+          "domain": "en.wikipedia.org",
+          "tier": 2,
+          "stance": "contradict",
+          "evidence": "The eight-glass guideline has no clear scientific origin."
+        },
+        {
+          "url": "https://bbc.com/example-3",
+          "title": "Do you really need 8 glasses?",
+          "domain": "bbc.com",
+          "tier": 3,
+          "stance": "contradict",
+          "evidence": "Most people get enough fluid from food and normal thirst."
+        },
+        {
+          "url": "https://waterwellness.net/example-3",
+          "title": "Best water filters this year",
+          "domain": "waterwellness.net",
+          "tier": 3,
+          "stance": "not_addressed",
+          "evidence": "The page compares filters and does not discuss daily intake."
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "stage": "search",
+      "message": "Could not search for this claim: no sources came back.",
+      "claim_id": 2
+    },
+    {
+      "stage": "evaluate",
+      "message": "Evaluating this claim took too long.",
+      "claim_id": 4
+    }
+  ]
+}

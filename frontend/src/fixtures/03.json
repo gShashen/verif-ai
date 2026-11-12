@@ -1,0 +1,8 @@
+{
+  "input_url": "https://www.youtube.com/shorts/jXofRFYep-4",
+  "status": 422,
+  "seconds": 1.8,
+  "response": {
+    "detail": "This video has no captions."
+  }
+}

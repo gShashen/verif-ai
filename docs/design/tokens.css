@@ -1,0 +1,48 @@
+/* Graphite design tokens for Tailwind v4. Paste into frontend/src/index.css after @import "tailwindcss". */
+@theme {
+  /* colour */
+  --color-page: #070708;
+  --color-bg: #0C0C0D;
+  --color-surface: #141416;
+  --color-surface-2: #1B1B1E;
+  --color-line: #2A2A2E;
+  --color-line-strong: #44444A;
+  --color-fg: #EDEDED;
+  --color-fg-2: #BDBDC2;
+  --color-mu: #8D8D93;
+
+  /* verdict and stance (icon and word always accompany colour) */
+  --color-supported: #5AB0F0;
+  --color-contradicted: #F0794A;
+  --color-disputed: #EBC24D;
+  --color-insufficient: #8D8D93;
+  --color-on-verdict: #0C0C0D;
+  --color-supported-tint: rgb(90 176 240 / 0.12);   --color-supported-edge: rgb(90 176 240 / 0.42);
+  --color-contradicted-tint: rgb(240 121 74 / 0.12); --color-contradicted-edge: rgb(240 121 74 / 0.42);
+  --color-disputed-tint: rgb(235 194 77 / 0.12);     --color-disputed-edge: rgb(235 194 77 / 0.42);
+  --color-insufficient-tint: rgb(141 141 147 / 0.14); --color-insufficient-edge: rgb(141 141 147 / 0.42);
+  --color-error-text: #F7A98A;
+
+  /* type */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* radius (Solid chip style: 6px controls) */
+  --radius-xs: 3px;
+  --radius-sm: 6px;   /* buttons, inputs, verdict chips, toasts */
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;  /* cards, frames */
+  --radius-pill: 999px;
+
+  /* shadow */
+  --shadow-focus: 0 0 0 4px rgb(255 255 255 / 0.08);
+  --shadow-toast: 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  --shadow-sheet: 0 -16px 40px -16px rgb(0 0 0 / 0.7);
+
+  /* motion */
+  --ease-ui: ease;
+  --default-transition-duration: 200ms;
+}
+
+/* index.html needs: <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"> */
