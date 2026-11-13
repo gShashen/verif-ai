@@ -57,7 +57,7 @@ export default function DisputedTabs({ sources, claimId }) {
               aria-controls={`panel-${claimId}`}
               tabIndex={isActive ? 0 : -1}
               onClick={() => setActive(tab.id)}
-              className={`flex-1 rounded-full px-2 py-[7px] text-[13px] transition-colors ${
+              className={`flex-auto whitespace-nowrap rounded-full px-2 py-[7px] sm:flex-1 text-[13px] transition-colors ${
                 isActive ? "bg-fg font-medium text-on-verdict" : "text-mu hover:text-fg"
               }`}
             >

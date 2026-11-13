@@ -1,10 +1,15 @@
 import fixture01 from "./fixtures/01.json"
 import fixture03 from "./fixtures/03.json"
 import fixture07 from "./fixtures/07.json"
+// Design samples, so every result state is reachable without API cost:
+// https://example.com/disputed, /partial, /no-claims
+import sampleDisputed from "./fixtures/sample-disputed.json"
+import samplePartial from "./fixtures/sample-partial.json"
+import sampleNoClaims from "./fixtures/sample-no-claims.json"
 
 const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"
 const USE_FIXTURES = import.meta.env.VITE_USE_FIXTURES === "true"
-const FIXTURES = [fixture01, fixture03, fixture07]
+const FIXTURES = [fixture01, fixture03, fixture07, sampleDisputed, samplePartial, sampleNoClaims]
 const FIXTURE_DELAY_MS = 1500
 
 /**

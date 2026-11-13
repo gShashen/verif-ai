@@ -2,7 +2,7 @@ import { useState } from "react"
 import Icon from "./Icon.jsx"
 import ClaimAccordion from "./ClaimAccordion.jsx"
 import { VERDICTS, VERDICT_ORDER } from "../lib/verdicts.js"
-import { isValidUrl, LINK_ERROR } from "../lib/validate.js"
+import { validateInput } from "../lib/validate.js"
 
 /** Count claims per verdict, in the fixed display order, skipping verdicts with none. */
 function countVerdicts(claims) {
@@ -59,49 +59,112 @@ function FailedRow({ error }) {
   )
 }
 
-/** "Try another link" field with a Check button; used on results and the no-claims state. */
+/**
+ * "Check another" field with a Link / Paste text switch and a Check button; used on
+ * results and the no-claims state. Calls onCheck with {url} or {text}.
+ */
 function RetryField({ onCheck }) {
+  const [mode, setMode] = useState("link")
   const [value, setValue] = useState("")
   const [error, setError] = useState(null)
 
+  function switchMode(next) {
+    setMode(next)
+    setValue("")
+    setError(null)
+  }
+
   function handleSubmit(event) {
     event.preventDefault()
-    if (isValidUrl(value)) {
-      setError(null)
-      onCheck(value.trim())
+    const problem = validateInput(mode, value, value)
+    if (problem) {
+      setError(problem)
     } else {
-      setError(LINK_ERROR)
+      setError(null)
+      if (mode === "link") {
+        onCheck({ url: value.trim() })
+      } else {
+        onCheck({ text: value.trim() })
+      }
     }
   }
 
+  const fieldClass = `min-w-0 rounded-sm border bg-surface px-3.5 py-3 transition-[border-color,box-shadow] hover:border-line-strong focus:border-white focus:shadow-focus focus:outline-none ${
+    error ? "border-contradicted" : "border-line"
+  }`
+  const tabBase = "pb-0.5 text-[13px] transition-colors hover:text-fg"
+  const submitButton = (
+    <button
+      type="submit"
+      className="rounded-sm bg-fg px-4 py-3 text-[13px] font-medium text-on-verdict transition-[background,transform] hover:bg-white active:scale-[0.98]"
+    >
+      Check claims
+    </button>
+  )
+
   return (
     <form onSubmit={handleSubmit} noValidate className="grid gap-2">
-      <label
-        htmlFor="retry-url"
-        className="font-mono text-[11px] font-medium tracking-[0.08em] text-mu uppercase"
-      >
-        Try another link
-      </label>
-      <div className="flex gap-2">
-        <input
-          id="retry-url"
-          type="url"
-          inputMode="url"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="https://..."
-          aria-invalid={error ? "true" : "false"}
-          className={`min-w-0 flex-1 rounded-sm border bg-surface px-3.5 py-3 transition-[border-color,box-shadow] hover:border-line-strong focus:border-white focus:shadow-focus focus:outline-none ${
-            error ? "border-contradicted" : "border-line"
-          }`}
-        />
-        <button
-          type="submit"
-          className="rounded-sm bg-fg px-4 py-3 text-[13px] font-medium text-on-verdict transition-[background,transform] hover:bg-white active:scale-[0.98]"
+      <div className="flex items-center justify-between gap-4">
+        <label
+          htmlFor="retry-field"
+          className="font-mono text-[11px] font-medium tracking-[0.08em] text-mu uppercase"
         >
-          Check claims
-        </button>
+          {mode === "link" ? "Try another link" : "Try other text"}
+        </label>
+        <div role="tablist" aria-label="Input type" className="flex gap-4">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "link"}
+            onClick={() => switchMode("link")}
+            className={`${tabBase} ${mode === "link" ? "border-b border-fg text-fg" : "text-mu"}`}
+          >
+            Link
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "text"}
+            onClick={() => switchMode("text")}
+            className={`${tabBase} ${mode === "text" ? "border-b border-fg text-fg" : "text-mu"}`}
+          >
+            Paste text
+          </button>
+        </div>
       </div>
+      {mode === "link" ? (
+        <div className="flex gap-2">
+          <input
+            id="retry-field"
+            type="url"
+            inputMode="url"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="https://..."
+            aria-invalid={error ? "true" : "false"}
+            className={`flex-1 ${fieldClass}`}
+          />
+          {submitButton}
+        </div>
+      ) : (
+        <div className="grid gap-2">
+          <textarea
+            id="retry-field"
+            rows={5}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Paste the article or transcript here."
+            aria-invalid={error ? "true" : "false"}
+            className={`w-full resize-none leading-normal ${fieldClass}`}
+          />
+          <div className="flex items-center justify-between gap-3">
+            <span className="font-mono text-xs text-mu tabular-nums">
+              {value.trim().length} characters
+            </span>
+            {submitButton}
+          </div>
+        </div>
+      )}
       {error ? (
         <p role="alert" className="flex items-start gap-2 text-[13px] text-error-text">
           <Icon name="alert" size={16} className="mt-0.5 text-contradicted" />
@@ -115,9 +178,9 @@ function RetryField({ onCheck }) {
 /**
  * Results, summary first: source chip, summary, claim accordion in response order,
  * muted rows for failed claims, then a retry field.
- * @param {{result: object, sourceLabel: string, onCheckUrl: Function}} props
+ * @param {{result: object, sourceLabel: string, onCheck: Function}} props
  */
-export default function ResultsView({ result, sourceLabel, onCheckUrl }) {
+export default function ResultsView({ result, sourceLabel, onCheck }) {
   const failed = result.errors.filter((e) => e.claim_id !== null && e.claim_id !== undefined)
   const hasClaims = result.claims.length > 0
 
@@ -154,7 +217,7 @@ export default function ResultsView({ result, sourceLabel, onCheckUrl }) {
         </div>
       )}
 
-      <RetryField onCheck={onCheckUrl} />
+      <RetryField onCheck={onCheck} />
     </div>
   )
 }

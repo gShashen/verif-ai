@@ -1,0 +1,191 @@
+{
+  "input_url": "https://example.com/disputed",
+  "status": 200,
+  "response": {
+    "url": "https://www.youtube.com/watch?v=aB3xK9sleep",
+    "source_type": "youtube",
+    "claims": [
+      {
+        "id": 1,
+        "text": "Adults need seven or more hours of sleep per night.",
+        "verdict": "supported",
+        "confidence": "high",
+        "explanation": "Source 1, Source 2 and Source 3 give the same range of seven or more hours for adults. Source 4 agrees. Source 5 does not address the number.",
+        "sources": [
+          {
+            "url": "https://cdc.gov/example-1",
+            "title": "How much sleep do I need?",
+            "domain": "cdc.gov",
+            "tier": 1,
+            "stance": "support",
+            "evidence": "Adults aged 18 to 60 should sleep at least 7 hours per night."
+          },
+          {
+            "url": "https://nhlbi.nih.gov/example-1",
+            "title": "Sleep deprivation and deficiency",
+            "domain": "nhlbi.nih.gov",
+            "tier": 1,
+            "stance": "support",
+            "evidence": "Most adults need 7 to 9 hours of sleep a day."
+          },
+          {
+            "url": "https://health.harvard.edu/example-1",
+            "title": "Healthy sleep",
+            "domain": "health.harvard.edu",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Experts recommend seven to nine hours for most adults."
+          },
+          {
+            "url": "https://en.wikipedia.org/example-1",
+            "title": "Sleep",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "support",
+            "evidence": "Recommended sleep for adults is seven to nine hours."
+          },
+          {
+            "url": "https://sleepblogdaily.com/example-1",
+            "title": "Best mattress firmness for side sleepers",
+            "domain": "sleepblogdaily.com",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "The article covers mattress firmness and does not mention nightly hours."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "You can fully catch up on lost sleep over the weekend.",
+        "verdict": "disputed",
+        "confidence": "medium",
+        "explanation": "Source 1 reports partial recovery after two nights of extra sleep. Source 2, Source 3 and Source 4 say the effects on metabolism and focus did not fully reverse. Source 5 sides with the claim. The two sides are close, so this is disputed.",
+        "sources": [
+          {
+            "url": "https://ncbi.nlm.nih.gov/example-2",
+            "title": "Recovery sleep after short sleep",
+            "domain": "ncbi.nlm.nih.gov",
+            "tier": 1,
+            "stance": "support",
+            "evidence": "Two nights of extended sleep reversed some measured effects of short sleep."
+          },
+          {
+            "url": "https://med.stanford.edu/example-2",
+            "title": "Weekend recovery and metabolism",
+            "domain": "med.stanford.edu",
+            "tier": 2,
+            "stance": "contradict",
+            "evidence": "Metabolic markers did not fully recover after a weekend of extra sleep."
+          },
+          {
+            "url": "https://health.harvard.edu/example-2",
+            "title": "Can you catch up on sleep?",
+            "domain": "health.harvard.edu",
+            "tier": 2,
+            "stance": "contradict",
+            "evidence": "Catch-up sleep does not erase the effects of a week of short nights."
+          },
+          {
+            "url": "https://sleepfoundation.org/example-2",
+            "title": "Sleep debt explained",
+            "domain": "sleepfoundation.org",
+            "tier": 3,
+            "stance": "contradict",
+            "evidence": "Recovery sleep improves mood but not long-term health markers."
+          },
+          {
+            "url": "https://healthline.com/example-2",
+            "title": "Is weekend sleep worth it?",
+            "domain": "healthline.com",
+            "tier": 3,
+            "stance": "support",
+            "evidence": "Extra weekend sleep can offset some of the fatigue."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "Eight glasses of water a day is a medical requirement.",
+        "verdict": "contradicted",
+        "confidence": "high",
+        "explanation": "Source 1 finds no evidence for a fixed eight-glass rule. Source 2 and Source 3 say needs vary with body size, diet and climate. Source 4 agrees. Source 5 is about water filters and does not address the claim.",
+        "sources": [
+          {
+            "url": "https://nih.gov/example-3",
+            "title": "Water and healthier drinks",
+            "domain": "nih.gov",
+            "tier": 1,
+            "stance": "contradict",
+            "evidence": "No study supports a single fixed number of glasses for everyone."
+          },
+          {
+            "url": "https://med.umich.edu/example-3",
+            "title": "Is eight glasses a day a myth?",
+            "domain": "med.umich.edu",
+            "tier": 2,
+            "stance": "contradict",
+            "evidence": "Fluid needs vary with body size, diet and climate."
+          },
+          {
+            "url": "https://en.wikipedia.org/example-3",
+            "title": "Drinking water",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "contradict",
+            "evidence": "The eight-glass guideline has no clear scientific origin."
+          },
+          {
+            "url": "https://bbc.com/example-3",
+            "title": "Do you really need 8 glasses?",
+            "domain": "bbc.com",
+            "tier": 3,
+            "stance": "contradict",
+            "evidence": "Most people get enough fluid from food and normal thirst."
+          },
+          {
+            "url": "https://waterwellness.net/example-3",
+            "title": "Best water filters this year",
+            "domain": "waterwellness.net",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "The page compares filters and does not discuss daily intake."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "text": "Consumer sleep trackers are 95 percent accurate.",
+        "verdict": "insufficient_evidence",
+        "confidence": "low",
+        "explanation": "Source 1 says accuracy varies by device and by what is measured. Source 2 and Source 3 give no overall figure, so the 95 percent number cannot be checked.",
+        "sources": [
+          {
+            "url": "https://aasm.org/example-4",
+            "title": "Consumer sleep technology",
+            "domain": "aasm.org",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "Accuracy varies by device and measure, with no overall percentage given."
+          },
+          {
+            "url": "https://en.wikipedia.org/example-4",
+            "title": "Sleep tracker",
+            "domain": "en.wikipedia.org",
+            "tier": 2,
+            "stance": "not_addressed",
+            "evidence": "Describes how trackers work but gives no accuracy figure."
+          },
+          {
+            "url": "https://techreviewlab.net/example-4",
+            "title": "Our favourite sleep gadgets",
+            "domain": "techreviewlab.net",
+            "tier": 3,
+            "stance": "not_addressed",
+            "evidence": "A product roundup without accuracy testing."
+          }
+        ]
+      }
+    ],
+    "errors": []
+  }
+}

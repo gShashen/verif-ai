@@ -9,7 +9,7 @@ export function VerdictBadge({ verdict }) {
   const meta = VERDICTS[verdict] || VERDICTS.insufficient_evidence
   return (
     <span
-      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-sm py-[3px] pr-2.5 pl-1.5 text-[13px] font-medium text-on-verdict ${meta.fill}`}
+      className={`inline-flex items-center gap-1.5 justify-self-start whitespace-nowrap rounded-sm py-[3px] pr-2.5 pl-1.5 text-[13px] font-medium text-on-verdict ${meta.fill}`}
     >
       <Icon name={meta.icon} size={16} stroke={3} />
       {meta.label}
@@ -25,14 +25,14 @@ export function ConfidenceMeter({ confidence }) {
   const meta = CONFIDENCE[confidence] || CONFIDENCE.low
   const heights = ["h-1.5", "h-2.5", "h-3.5"]
   return (
-    <span className="inline-flex min-w-[140px] items-end gap-[3px] whitespace-nowrap text-xs text-mu">
+    <span className="inline-flex items-end sm:min-w-[140px] gap-[3px] whitespace-nowrap text-xs text-mu">
       {heights.map((h, i) => (
         <b
           key={h}
           className={`w-1 rounded-[1px] ${h} ${i < meta.level ? "bg-fg" : "bg-line-strong"}`}
         />
       ))}
-      <em className="ml-1.5 self-center not-italic">{meta.label}</em>
+      <em className="ml-1 self-center not-italic sm:ml-1.5">{meta.label}</em>
     </span>
   )
 }

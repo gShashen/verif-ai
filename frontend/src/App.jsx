@@ -100,11 +100,16 @@ export default function App() {
     }
   }
 
-  /** Retry field on the results view. */
-  function handleCheckUrl(newUrl) {
-    setUrl(newUrl)
-    setMode("link")
-    run({ url: newUrl })
+  /** Retry field on the results view. `input` is {url} or {text}. */
+  function handleCheck(input) {
+    if (input.url !== undefined) {
+      setUrl(input.url)
+      setMode("link")
+    } else {
+      setText(input.text)
+      setMode("text")
+    }
+    run(input)
   }
 
   return (
@@ -158,7 +163,7 @@ export default function App() {
 
       {view === "results" && result ? (
         <main className="pt-8">
-          <ResultsView result={result} sourceLabel={sourceLabel} onCheckUrl={handleCheckUrl} />
+          <ResultsView result={result} sourceLabel={sourceLabel} onCheck={handleCheck} />
         </main>
       ) : null}
 

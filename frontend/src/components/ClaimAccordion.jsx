@@ -40,7 +40,7 @@ export default function ClaimAccordion({ claim, defaultOpen }) {
           {claim.text}
         </span>
         <Icon name="chevron" size={20} className="chev mt-0.5 text-white transition-transform" />
-        <span className="col-span-2 grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-2 sm:flex sm:justify-between">
+        <span className="col-span-2 grid grid-cols-[168px_auto] items-center gap-x-2 gap-y-2 sm:flex sm:justify-between">
           <VerdictBadge verdict={claim.verdict} />
           <ConfidenceMeter confidence={claim.confidence} />
         </span>
