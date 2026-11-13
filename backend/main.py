@@ -24,8 +24,26 @@ HTTP_TIMEOUT = 15  # seconds per Serper request; httpx's default of 5 s timed ou
 
 app = FastAPI(title="VerifAI")
 
-# Day 9: add the deployed Vercel domain here.
-ALLOWED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]
+LOCAL_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]
+
+
+def build_allowed_origins(extra_origins):
+    """Return the CORS origins: the two local dev origins plus any comma-separated extras.
+
+    extra_origins is the FRONTEND_ORIGINS setting (for example the Vercel URL). Blanks are
+    skipped and a trailing slash is removed, because browsers send origins without one.
+    """
+    origins = list(LOCAL_ORIGINS)
+
+    for origin in extra_origins.split(","):
+        cleaned = origin.strip().rstrip("/")
+        if cleaned and cleaned not in origins:
+            origins.append(cleaned)
+
+    return origins
+
+
+ALLOWED_ORIGINS = build_allowed_origins(os.getenv("FRONTEND_ORIGINS", ""))
 
 app.add_middleware(
     CORSMiddleware,
