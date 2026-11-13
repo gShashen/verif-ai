@@ -45,7 +45,7 @@ flowchart LR
 3. **Search.** Each claim is searched through Serper, in parallel. Results are filtered (the input's own domain, user-generated sites such as Reddit and Quora, duplicates), assigned a trust tier, and the top 5 pages are fetched (6 s timeout, about 2,000 characters around the claim's keywords).
 4. **Evaluate.** One Claude Sonnet call per claim labels each source as `support`, `contradict` or `not_addressed`, with one evidence sentence. Claims run concurrently. Plain Python then computes the verdict.
 
-Each stage can fail on its own. A failed claim is dropped and reported in the response's `errors` list instead of breaking the whole request. More detail is in [docs/architecture.md](docs/architecture.md).
+Each stage can fail on its own. A failed claim is dropped and reported in the response's `errors` list instead of breaking the whole request.
 
 ## The verdict rule
 
@@ -85,7 +85,7 @@ Honest numbers from my own testing. These are small samples, not benchmarks.
 | The Sahara is the largest desert | contradicted |
 | The Nile flows into the Red Sea | contradicted |
 
-The labels were made by one person, and two runs over the same inputs differ by a few points because search results and extracted claims vary. One high-trust page that the LLM misreads can still produce a wrong verdict. The full table, with the mistakes I found in my own labels, is in [docs/quality-table.md](docs/quality-table.md).
+The labels were made by one person, and two runs over the same inputs differ by a few points because search results and extracted claims vary. One high-trust page that the LLM misreads can still produce a wrong verdict.
 
 ## Limitations
 
@@ -98,8 +98,6 @@ The labels were made by one person, and two runs over the same inputs differ by 
 - **Stance labels come from one LLM call** with no second check.
 - **Costs and limits.** Each check costs about $0.03 of API credit. There is no rate limit, no caching and no database by design.
 - **Frontend has no automated tests.** It was checked by hand on desktop and a 390 px mobile layout.
-
-The complete list is in [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
 
 ## Run it locally
 
@@ -156,7 +154,7 @@ backend/    main.py       FastAPI app, /verify, per-claim pipeline, CORS
             models.py     Pydantic models (the response shape is frozen)
             tests/        unit tests and saved fixtures
 frontend/   src/          React app (components, fixtures, API client)
-docs/       architecture.md, quality-table.md, design/, deploy.md
+docs/       design/ (UI design spec and reference pages), media/ (demo and screenshots)
 ```
 
 ## How others can improve it

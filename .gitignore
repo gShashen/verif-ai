@@ -56,3 +56,17 @@ models_cache/
 docs/media/DEMO-SCRIPT.md
 docs/knowledge/
 docs/build-plan.md
+
+# local-only docs and saved run outputs (not in the public repo)
+docs/deploy.md
+docs/quality-table.md
+docs/architecture.md
+KNOWN_ISSUES.md
+backend/tests/fixtures/responses/
+backend/tests/fixtures/responses_day5_baseline/
+backend/tests/fixtures/responses_day8_run1/
+backend/tests/fixtures/claims/
+backend/tests/fixtures/search/
+backend/tests/fixtures/evaluations/
+backend/tests/fixtures/texts/
+backend/tests/fixtures/test_urls.txt
