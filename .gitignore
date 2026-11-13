@@ -51,3 +51,8 @@ Thumbs.db
 *.h5
 data/
 models_cache/
+
+# local-only demo notes
+docs/media/DEMO-SCRIPT.md
+docs/knowledge/
+docs/build-plan.md
