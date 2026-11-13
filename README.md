@@ -10,7 +10,7 @@ Paste a YouTube or article link and get a sourced verdict on its key claims.
 
 ![VerifAI demo](docs/media/demo.gif)
 
-[Watch the full-quality video with music](docs/media/demo.mp4) (93 s). It shows a pasted text, two article links and a YouTube link.
+[Watch the full-quality video](docs/media/demo.mp4) (93 s). It shows a pasted text, two article links and a YouTube link.
 
 | Results summary | Sources behind a verdict |
 |---|---|
