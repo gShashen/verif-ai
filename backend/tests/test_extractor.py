@@ -1,8 +1,9 @@
 """Unit tests for URL type detection and YouTube ID parsing in extractor.py."""
 
 import pytest
+from youtube_transcript_api import IpBlocked, RequestBlocked, VideoUnavailable, YouTubeTranscriptApi
 
-from extractor import detect_source_type, get_youtube_id
+from extractor import ExtractionError, detect_source_type, get_transcript_youtube, get_youtube_id
 
 VIDEO_ID = "dQw4w9WgXcQ"
 
@@ -76,3 +77,33 @@ def test_youtube_hosts_detected_as_youtube(url):
 )
 def test_other_hosts_detected_as_article(url):
     assert detect_source_type(url) == "article"
+
+
+@pytest.mark.parametrize("error_class", [RequestBlocked, IpBlocked])
+def test_blocked_youtube_gives_paste_transcript_message(monkeypatch, error_class):
+    """A YouTube IP block must say so and point to pasting the transcript, not the vague message."""
+
+    def fake_fetch(self, video_id, languages):
+        raise error_class(VIDEO_ID)
+
+    monkeypatch.setattr(YouTubeTranscriptApi, "fetch", fake_fetch)
+
+    with pytest.raises(ExtractionError) as info:
+        get_transcript_youtube(VIDEO_ID)
+
+    assert "blocking" in str(info.value)
+    assert "Paste" in str(info.value)
+
+
+def test_other_retrieval_failure_keeps_generic_message(monkeypatch):
+    """Failures that are not an IP block still get the generic message."""
+
+    def fake_fetch(self, video_id, languages):
+        raise VideoUnavailable(VIDEO_ID)
+
+    monkeypatch.setattr(YouTubeTranscriptApi, "fetch", fake_fetch)
+
+    with pytest.raises(ExtractionError) as info:
+        get_transcript_youtube(VIDEO_ID)
+
+    assert str(info.value) == "Couldn't get a transcript for this video."

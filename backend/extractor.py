@@ -4,7 +4,7 @@ from urllib.parse import parse_qs, urlparse
 
 import trafilatura
 from newspaper import Article, ArticleException
-from youtube_transcript_api import CouldNotRetrieveTranscript, NoTranscriptFound, YouTubeTranscriptApi, TranscriptsDisabled
+from youtube_transcript_api import CouldNotRetrieveTranscript, NoTranscriptFound, RequestBlocked, YouTubeTranscriptApi, TranscriptsDisabled
 
 YOUTUBE_HOSTS = {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be"}
 MIN_ARTICLE_CHARS = 500
@@ -99,6 +99,9 @@ def get_transcript_youtube(video_id: str) -> str:
         raise ExtractionError("This video has no English transcript.") from err
     except TranscriptsDisabled as err:
         raise ExtractionError("This video has no captions.") from err
+    except RequestBlocked as err:
+        # Must come before CouldNotRetrieveTranscript: RequestBlocked (and IpBlocked) are subclasses of it.
+        raise ExtractionError("YouTube is blocking our server right now. Paste the video's transcript as text instead.") from err
     except CouldNotRetrieveTranscript as err:
         raise ExtractionError("Couldn't get a transcript for this video.") from err
 
