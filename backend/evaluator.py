@@ -22,6 +22,8 @@ For each source, pick one stance towards the claim:
 - contradict: the source gives a different fact that conflicts with the claim.
 - not_addressed: the source does not speak to the claim (including a different topic, or a detail the claim does not depend on).
 
+A figure from a different year or period than the one the claim is about (for example an older statistic) does not conflict with the claim: label it not_addressed, unless the source says the figure for the claim's own period is different.
+
 For each source give one short evidence sentence taken from that source's text. Return exactly one entry per source, using its number. Also give a 1 to 2 sentence explanation of what the sources say about the claim overall.
 
 Return your answer by calling the report_stances tool."""

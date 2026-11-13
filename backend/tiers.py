@@ -31,6 +31,13 @@ TIER_1_DOMAINS = {
     "plos.org",
     # Central banks without a .gov domain
     "bankofengland.co.uk",
+    # Development banks (Day 8: adb.org is the issuer of its own loan announcements)
+    "adb.org",
+    "afdb.org",
+    # Public health service and research labs without a .gov domain
+    "nhs.uk",
+    "home.cern",
+    "cern.ch",
 }
 
 # Tier 2: established editorial or secondary sources
@@ -61,6 +68,16 @@ TIER_2_DOMAINS = {
     "wikipedia.org",
     "britannica.com",
     "ourworldindata.org",
+    # Medical centres, patient charities, museums, prizes (Day 8)
+    "mayoclinic.org",
+    "clevelandclinic.org",
+    "hopkinsmedicine.org",
+    "alz.org",
+    "nobelprize.org",
+    "amnh.org",
+    "smithsonianmag.com",
+    # Society journal host: publishes many unrelated papers, so Tier 2 (Tier 1 let one misread page decide a verdict)
+    "royalsocietypublishing.org",
     # Fact-checkers
     "snopes.com",
     "politifact.com",

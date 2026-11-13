@@ -9,6 +9,7 @@ import pytest
 
 from evaluator import (
     EvaluationParseError,
+    PROMPT,
     TOOL,
     build_claim,
     build_user_message,
@@ -66,6 +67,11 @@ class FakeMessages:
         if isinstance(reply, Exception):
             raise reply
         return reply
+
+
+def test_prompt_says_older_figures_are_not_contradictions():
+    """Day 8: a stale statistic (CDC 6.7 million vs a 2026 claim) must not be labelled contradict."""
+    assert "different year or period" in PROMPT
 
 
 class FakeClient:

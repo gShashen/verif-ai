@@ -49,6 +49,20 @@ def test_anchor_tier_2_domains(domain):
     assert get_tier(domain) == 2
 
 
+@pytest.mark.parametrize("domain", ["adb.org", "nhs.uk", "home.cern", "cern.ch"])
+def test_day8_tier_1_additions(domain):
+    assert get_tier(domain) == 1
+
+
+@pytest.mark.parametrize("domain", ["mayoclinic.org", "clevelandclinic.org", "alz.org", "nobelprize.org", "royalsocietypublishing.org"])
+def test_day8_tier_2_additions(domain):
+    assert get_tier(domain) == 2
+
+
+def test_day8_lookalike_of_adb_is_not_tier_1():
+    assert get_tier("notadb.org") == DEFAULT_TIER
+
+
 @pytest.mark.parametrize("domain", ["reddit.com", "thermtest.com", "medium.com", "example.com"])
 def test_unlisted_domains_get_default_tier(domain):
     assert get_tier(domain) == DEFAULT_TIER
